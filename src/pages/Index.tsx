@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Shield, Zap, Target, Star, ArrowRight } from "lucide-react";
+import { Heart, Shield, Zap, Target, Star, ArrowRight } from "lucide-react";
 import realHeart from "@/assets/real-heart.png";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
