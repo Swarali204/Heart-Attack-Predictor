@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { User, Heart, Activity, Stethoscope, ChevronRight, ChevronLeft, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -55,6 +56,8 @@ export default function Assessment() {
     return false;
   };
 
+  const { addAssessment } = useAuth();
+
   const handleSubmit = () => {
     const age = parseInt(data.age);
     const bp = parseInt(data.restingBP);
@@ -67,6 +70,7 @@ export default function Assessment() {
     if (data.exerciseAngina === "yes") score += 15;
     if (data.fastingBS === "yes") score += 10;
     const risk = Math.min(score, 100);
+    addAssessment({ risk, date: new Date().toISOString(), data });
     navigate("/result", { state: { risk, data } });
   };
 
