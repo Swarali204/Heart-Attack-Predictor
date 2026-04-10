@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Heart, Menu, X, Moon, Sun, LogOut } from "lucide-react";
 import { useTheme } from "@/contexts/ThemeContext";
 import { useAuth } from "@/contexts/AuthContext";
@@ -17,6 +17,12 @@ export default function Navbar() {
   const { dark, toggle } = useTheme();
   const { user, logout } = useAuth();
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/", { replace: true });
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/50">
@@ -59,7 +65,7 @@ export default function Navbar() {
                   Dashboard
                 </Button>
               </Link>
-              <button onClick={logout} className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground">
+              <button onClick={handleLogout} className="p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground">
                 <LogOut className="h-4 w-4" />
               </button>
             </>

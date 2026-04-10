@@ -1,8 +1,9 @@
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Heart, AlertTriangle, CheckCircle, ArrowRight, Salad, Dumbbell, Stethoscope, Pill } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
+import { useAuth } from "@/contexts/AuthContext";
 
 const getRiskInfo = (risk: number) => {
   if (risk >= 60) return { label: "High Risk", color: "text-red-500", bg: "bg-red-500", ring: "border-red-500", gradient: "from-red-500 to-red-600" };
@@ -18,7 +19,11 @@ const recommendations = [
 ];
 
 export default function Result() {
+  const { user } = useAuth();
   const location = useLocation();
+
+  if (!user) return <Navigate to="/" replace />;
+
   const { risk = 35 } = (location.state as { risk?: number }) || {};
   const info = getRiskInfo(risk);
   const circumference = 2 * Math.PI * 70;
