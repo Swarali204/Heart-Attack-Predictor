@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Heart, Shield, Zap, Target, Star, ArrowRight } from "lucide-react";
+import realHeart from "@/assets/real-heart.png";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -82,7 +83,7 @@ export default function Index() {
                 <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 border border-primary/20 flex items-center justify-center">
                   <div className="absolute inset-4 rounded-full border-2 border-primary/20 animate-pulse-ring" />
                   <div className="absolute inset-8 rounded-full border border-primary/10 animate-pulse-ring" style={{ animationDelay: "0.3s" }} />
-                  <Heart className="h-24 w-24 md:h-32 md:w-32 text-primary animate-heartbeat" fill="currentColor" />
+                  <img src={realHeart} alt="Anatomical human heart" className="h-40 w-40 md:h-52 md:w-52 animate-heartbeat object-contain drop-shadow-2xl" />
                 </div>
               </div>
             </motion.div>
