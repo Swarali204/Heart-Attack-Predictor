@@ -22,14 +22,24 @@ export default function Auth() {
       toast.error("Please fill in all fields");
       return;
     }
+
     if (isLogin) {
-      login(email, password);
-      toast.success("Welcome back!");
+      const result = login(email, password);
+      if (result === true) {
+        toast.success("Welcome back!");
+        navigate("/dashboard");
+      } else {
+        toast.error(result);
+      }
     } else {
-      signup(name, email, password);
-      toast.success("Account created successfully!");
+      const result = signup(name, email, password);
+      if (result === true) {
+        toast.success("Account created successfully!");
+        navigate("/dashboard");
+      } else {
+        toast.error(result);
+      }
     }
-    navigate("/dashboard");
   };
 
   return (

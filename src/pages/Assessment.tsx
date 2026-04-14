@@ -196,12 +196,12 @@ export default function Assessment() {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <FieldLabel label="Resting Blood Pressure (mm Hg)" tip="Blood pressure measured at rest, typically 120/80 is normal" />
-                      <Input type="number" placeholder="e.g. 130" value={data.restingBP} onChange={(e) => set("restingBP", e.target.value)} className="rounded-xl" />
+                      <FieldLabel label="Resting Blood Pressure (90-140 mm Hg)" tip="Blood pressure measured at rest" />
+                      <Input type="number" placeholder="90-140" value={data.restingBP} onChange={(e) => set("restingBP", e.target.value)} className="rounded-xl" />
                     </div>
                     <div className="space-y-2">
-                      <FieldLabel label="Serum Cholesterol (mg/dl)" tip="Total cholesterol level, desirable is below 200 mg/dl" />
-                      <Input type="number" placeholder="e.g. 220" value={data.cholesterol} onChange={(e) => set("cholesterol", e.target.value)} className="rounded-xl" />
+                      <FieldLabel label="Serum Cholesterol (125-200 mg/dl)" tip="Total cholesterol level" />
+                      <Input type="number" placeholder="125-200" value={data.cholesterol} onChange={(e) => set("cholesterol", e.target.value)} className="rounded-xl" />
                     </div>
                     <div className="space-y-2">
                       <FieldLabel label="Fasting Blood Sugar > 120 mg/dl" tip="Whether fasting blood sugar exceeds 120 mg/dl" />
@@ -218,7 +218,7 @@ export default function Assessment() {
                 {step === 2 && (
                   <>
                     <div className="space-y-2">
-                      <FieldLabel label="Resting ECG Results" tip="Electrocardiographic results at rest" />
+                      <FieldLabel label="Resting ECG Results (Normal/ST-T/LVH)" tip="Electrocardiographic results at rest" />
                       <Select value={data.ecg} onValueChange={(v) => set("ecg", v)}>
                         <SelectTrigger className="rounded-xl"><SelectValue placeholder="Select" /></SelectTrigger>
                         <SelectContent>
@@ -229,8 +229,8 @@ export default function Assessment() {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <FieldLabel label="Maximum Heart Rate Achieved" tip="Highest heart rate during exercise test" />
-                      <Input type="number" placeholder="e.g. 150" value={data.maxHR} onChange={(e) => set("maxHR", e.target.value)} className="rounded-xl" />
+                      <FieldLabel label="Maximum Heart Rate Achieved (80-200 bpm)" tip="Highest heart rate during exercise test" />
+                      <Input type="number" placeholder="80-200" value={data.maxHR} onChange={(e) => set("maxHR", e.target.value)} className="rounded-xl" />
                     </div>
                     <div className="space-y-2">
                       <FieldLabel label="Exercise Induced Angina" tip="Chest pain triggered by physical exertion" />
@@ -243,8 +243,8 @@ export default function Assessment() {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <FieldLabel label="ST Depression" tip="ST depression induced by exercise relative to rest" />
-                      <Input type="number" step="0.1" placeholder="e.g. 1.5" value={data.stDepression} onChange={(e) => set("stDepression", e.target.value)} className="rounded-xl" />
+                      <FieldLabel label="ST Depression (0.0-2.0 mm)" tip="ST depression induced by exercise relative to rest" />
+                      <Input type="number" step="0.1" placeholder="0.0-2.0" value={data.stDepression} onChange={(e) => set("stDepression", e.target.value)} className="rounded-xl" />
                     </div>
                   </>
                 )}
@@ -336,8 +336,8 @@ export default function Assessment() {
                       </Select>
                     </div>
                     <div className="space-y-2">
-                      <FieldLabel label="Sleep Hours Per Night" tip="Average hours of sleep you get" />
-                      <Input type="number" placeholder="e.g. 7" value={data.sleepHours} onChange={(e) => set("sleepHours", e.target.value)} className="rounded-xl" />
+                      <FieldLabel label="Sleep Hours Per Night (6-9 hrs)" tip="Average hours of sleep you get" />
+                      <Input type="number" placeholder="6-9" value={data.sleepHours} onChange={(e) => set("sleepHours", e.target.value)} className="rounded-xl" />
                     </div>
                     <div className="space-y-2">
                       <FieldLabel label="Sleep Quality" tip="How well do you feel rested after sleeping" />
